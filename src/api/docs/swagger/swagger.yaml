@@ -1,0 +1,2652 @@
+basePath: /
+definitions:
+  chat.Chat:
+    properties:
+      created:
+        example: 1542070388826
+        format: timestamp in millis
+        type: integer
+      message:
+        type: string
+      receiverId:
+        type: integer
+      senderId:
+        type: integer
+    type: object
+  chat.Message:
+    properties:
+      created:
+        example: 1542070388826
+        format: timestamp in millis
+        type: integer
+      id:
+        type: integer
+      message:
+        type: string
+      receiverId:
+        type: integer
+      senderId:
+        type: integer
+    type: object
+  event.EventSwagger:
+    properties:
+      added:
+        description: (readonly)
+        example: 1542070388826
+        format: timestamp in millis
+        type: integer
+      area:
+        description: from additional table of DataBase (optional)
+        example: Capitol Area
+        maxLength: 255
+        minLength: 1
+        type: string
+      continent:
+        description: from additional table of DataBase (optional)
+        example: Europe
+        maxLength: 255
+        minLength: 1
+        type: string
+      country:
+        description: from additional table of DataBase (optional)
+        example: Iceland
+        maxLength: 255
+        minLength: 1
+        type: string
+      date:
+        description: event date (required)
+        example: 1542070388826
+        format: timestamp in millis
+        type: integer
+      description:
+        description: (required)
+        maxLength: 4096
+        minLength: 1
+        type: string
+      endDate:
+        description: event date (optional)
+        example: 1542070388826
+        format: timestamp in millis
+        type: integer
+      id:
+        description: event identifier (required)
+        type: integer
+      latitude:
+        description: represent coordinate (optional).
+        example: 49.388093
+        format: float64
+        type: number
+      location:
+        description: from additional table of DataBase (optional)
+        example: University of Iceland
+        maxLength: 255
+        minLength: 1
+        type: string
+      longitude:
+        description: represent coordinate (optional).
+        example: 29.959573
+        format: float64
+        type: number
+      media:
+        $ref: '#/definitions/media.Media'
+        description: (read only) (optional)
+        type: object
+      name:
+        description: (required)
+        maxLength: 255
+        minLength: 1
+        type: string
+      region:
+        description: from additional table of DataBase (optional)
+        example: Reykjavik
+        maxLength: 255
+        minLength: 1
+        type: string
+      tagProfile:
+        description: is need return userId (optional)
+        type: boolean
+      type:
+        default: true
+        description: is public profile? (optional)
+        example: true
+        type: boolean
+      updated:
+        description: (readonly)
+        example: 1542070388826
+        format: timestamp in millis
+        type: integer
+      userId:
+        description: user identifier (required)
+        type: integer
+    type: object
+  handler.APIResponse:
+    properties:
+      message:
+        type: string
+      result:
+        type: boolean
+    type: object
+  handler.AuthAPIResponse:
+    properties:
+      accessToken:
+        type: string
+      id:
+        type: integer
+      message:
+        type: string
+      result:
+        type: boolean
+    type: object
+  handler.ChangeTokenRequest:
+    properties:
+      deviceToken:
+        description: firebase token (required)
+        type: string
+      id:
+        description: user identifier (required)
+        type: integer
+    type: object
+  handler.ChatMessagesResponse:
+    properties:
+      message:
+        type: string
+      messages:
+        items:
+          $ref: '#/definitions/chat.Message'
+        type: array
+      result:
+        type: boolean
+    type: object
+  handler.ChatsResponse:
+    properties:
+      chats:
+        items:
+          $ref: '#/definitions/chat.Chat'
+        type: array
+      message:
+        type: string
+      result:
+        type: boolean
+    type: object
+  handler.CreateEventAPIResponse:
+    properties:
+      id:
+        type: integer
+      message:
+        type: string
+      result:
+        type: boolean
+    type: object
+  handler.CreatePostAPIResponse:
+    properties:
+      id:
+        type: integer
+      message:
+        type: string
+      result:
+        type: boolean
+    type: object
+  handler.DictionaryAPIResponse:
+    properties:
+      message:
+        type: string
+      result:
+        type: boolean
+      values:
+        type: object
+    type: object
+  handler.EventAPIResponseSwagger:
+    properties:
+      added:
+        description: (readonly)
+        example: 1542070388826
+        format: timestamp in millis
+        type: integer
+      area:
+        description: from additional table of DataBase (optional)
+        example: Capitol Area
+        maxLength: 255
+        minLength: 1
+        type: string
+      continent:
+        description: from additional table of DataBase (optional)
+        example: Europe
+        maxLength: 255
+        minLength: 1
+        type: string
+      country:
+        description: from additional table of DataBase (optional)
+        example: Iceland
+        maxLength: 255
+        minLength: 1
+        type: string
+      date:
+        description: event date (required)
+        example: 1542070388826
+        format: timestamp in millis
+        type: integer
+      description:
+        description: (required)
+        maxLength: 4096
+        minLength: 1
+        type: string
+      endDate:
+        description: event date (optional)
+        example: 1542070388826
+        format: timestamp in millis
+        type: integer
+      id:
+        description: event identifier (required)
+        type: integer
+      latitude:
+        description: represent coordinate (optional).
+        example: 49.388093
+        format: float64
+        type: number
+      location:
+        description: from additional table of DataBase (optional)
+        example: University of Iceland
+        maxLength: 255
+        minLength: 1
+        type: string
+      longitude:
+        description: represent coordinate (optional).
+        example: 29.959573
+        format: float64
+        type: number
+      media:
+        $ref: '#/definitions/media.Media'
+        description: (read only) (optional)
+        type: object
+      message:
+        type: string
+      name:
+        description: (required)
+        maxLength: 255
+        minLength: 1
+        type: string
+      region:
+        description: from additional table of DataBase (optional)
+        example: Reykjavik
+        maxLength: 255
+        minLength: 1
+        type: string
+      result:
+        type: boolean
+      tagProfile:
+        description: is need return userId (optional)
+        type: boolean
+      type:
+        default: true
+        description: is public profile? (optional)
+        example: true
+        type: boolean
+      updated:
+        description: (readonly)
+        example: 1542070388826
+        format: timestamp in millis
+        type: integer
+      userId:
+        description: user identifier (required)
+        type: integer
+    type: object
+  handler.EventsAPIResponseSwagger:
+    properties:
+      events:
+        items:
+          $ref: '#/definitions/event.EventSwagger'
+        type: array
+      message:
+        type: string
+      result:
+        type: boolean
+    type: object
+  handler.FollowRequest:
+    properties:
+      subscribeToUserId:
+        type: integer
+      userId:
+        type: integer
+    type: object
+  handler.FollowersResponse:
+    properties:
+      message:
+        type: string
+      result:
+        type: boolean
+    type: object
+  handler.FriendRequest:
+    properties:
+      friendId:
+        type: integer
+      userId:
+        type: integer
+    type: object
+  handler.FriendsResponse:
+    properties:
+      message:
+        type: string
+      result:
+        type: boolean
+    type: object
+  handler.NearbyItemsRequest:
+    properties:
+      distance:
+        description: (required)
+        example: 42000
+        format: in meters
+        type: integer
+      latitude:
+        description: (required)
+        example: 51.318619
+        type: number
+      longitude:
+        description: (required)
+        example: 28.805507
+        type: number
+    type: object
+  handler.PostAPIResponseSwagger:
+    properties:
+      added:
+        description: (readonly)
+        example: 1542070388826
+        format: timestamp in millis
+        type: integer
+      area:
+        description: from additional table of DataBase (optional)
+        example: Capitol Area
+        maxLength: 255
+        minLength: 1
+        type: string
+      continent:
+        description: from additional table of DataBase (optional)
+        example: Europe
+        maxLength: 255
+        minLength: 1
+        type: string
+      country:
+        description: from additional table of DataBase (optional)
+        example: Iceland
+        maxLength: 255
+        minLength: 1
+        type: string
+      dashTags:
+        description: (optional)
+        example:
+        - '#test'
+        - '#test2'
+        items:
+          type: string
+        type: array
+      eventId:
+        description: event identifier (optional).
+        type: integer
+      hashTags:
+        description: (optional)
+        example:
+        - //test
+        - //test2
+        items:
+          type: string
+        type: array
+      id:
+        description: post identifier
+        type: integer
+      latitude:
+        description: represent coordinate (optional).
+        example: 49.388093
+        format: float64
+        type: number
+      location:
+        description: from additional table of DataBase (optional)
+        example: University of Iceland
+        maxLength: 255
+        minLength: 1
+        type: string
+      longitude:
+        description: represent coordinate (optional).
+        example: 29.959573
+        format: float64
+        type: number
+      media:
+        $ref: '#/definitions/media.Media'
+        description: (read only) (optional)
+        type: object
+      message:
+        type: string
+      region:
+        description: from additional table of DataBase (optional)
+        example: Reykjavik
+        maxLength: 255
+        minLength: 1
+        type: string
+      result:
+        type: boolean
+      tagProfile:
+        default: false
+        description: need return userId? (optional)
+        example: false
+        type: boolean
+      text:
+        description: post text (required). Can be omitted on update
+        maxLength: 4096
+        minLength: 1
+        type: string
+      updated:
+        description: (readonly)
+        example: 1542070388826
+        format: timestamp in millis
+        type: integer
+      userId:
+        description: user identifier (required). Can be omitted on update
+        type: integer
+      viewRange:
+        default: 20037850
+        description: half of distance for entire globe in meters (optional)
+        example: 20037850
+        type: integer
+    type: object
+  handler.PostsAPIResponseSwagger:
+    properties:
+      message:
+        type: string
+      posts:
+        items:
+          $ref: '#/definitions/post.PostSwagger'
+        type: array
+      result:
+        type: boolean
+    type: object
+  handler.ProfileAPIResponseSwagger:
+    properties:
+      activitiesAndInterests:
+        items:
+          type: string
+        type: array
+      activitiesAndInterestsPrivacy:
+        type: boolean
+      age:
+        type: integer
+      agePrivacy:
+        type: boolean
+      archivesPrivacy:
+        type: boolean
+      bio:
+        type: string
+      bioPrivacy:
+        type: boolean
+      city:
+        type: string
+      cityPrivacy:
+        type: boolean
+      country:
+        type: string
+      countryPrivacy:
+        type: boolean
+      deviceToken:
+        type: string
+      email:
+        type: string
+      emailPrivacy:
+        type: boolean
+      ethnicity:
+        type: string
+      ethnicityPrivacy:
+        type: boolean
+      feedsPrivacy:
+        type: boolean
+      gender:
+        type: string
+      genderPrivacy:
+        type: boolean
+      height:
+        type: integer
+      heightPrivacy:
+        type: boolean
+      highlightsPrivacy:
+        type: boolean
+      id:
+        type: integer
+      latitude:
+        type: number
+      locationPrivacy:
+        type: boolean
+      longitude:
+        type: number
+      media:
+        $ref: '#/definitions/media.Media'
+        description: (optional). Omitted, if media file was not uploaded
+        type: object
+      message:
+        type: string
+      name:
+        type: string
+      phone:
+        type: string
+      phonePrivacy:
+        type: boolean
+      profession:
+        type: string
+      professionPrivacy:
+        type: boolean
+      relationshipStatus:
+        type: string
+      relationshipStatusPrivacy:
+        type: boolean
+      result:
+        type: boolean
+      username:
+        type: string
+      visibility:
+        type: integer
+      website:
+        type: string
+      websitePrivacy:
+        type: boolean
+      weight:
+        type: integer
+      weightPrivacy:
+        type: boolean
+    type: object
+  handler.SendMessageRequest:
+    properties:
+      message:
+        type: string
+    type: object
+  handler.UsersAPIResponse:
+    properties:
+      message:
+        type: string
+      result:
+        type: boolean
+      users:
+        items:
+          $ref: '#/definitions/user.PreparedProfile'
+        type: array
+    type: object
+  handler.UsersRequest:
+    properties:
+      usersIds:
+        items:
+          type: integer
+        type: array
+    type: object
+  media.Media:
+    properties:
+      format:
+        description: format (read only) (required)
+        example: image/png
+        type: string
+      link:
+        description: media link (read only) (required)
+        example: ac146571eb55d9cbde1a886dbc1f85d2/event.png
+        type: string
+      mediaType:
+        description: media type. unknown type = 0, image type = 1, video type = 2
+          (read only) (required)
+        example: 1
+        type: integer
+    type: object
+  post.PostSwagger:
+    properties:
+      added:
+        description: (readonly)
+        example: 1542070388826
+        format: timestamp in millis
+        type: integer
+      area:
+        description: from additional table of DataBase (optional)
+        example: Capitol Area
+        maxLength: 255
+        minLength: 1
+        type: string
+      continent:
+        description: from additional table of DataBase (optional)
+        example: Europe
+        maxLength: 255
+        minLength: 1
+        type: string
+      country:
+        description: from additional table of DataBase (optional)
+        example: Iceland
+        maxLength: 255
+        minLength: 1
+        type: string
+      dashTags:
+        description: (optional)
+        example:
+        - '#test'
+        - '#test2'
+        items:
+          type: string
+        type: array
+      eventId:
+        description: event identifier (optional).
+        type: integer
+      hashTags:
+        description: (optional)
+        example:
+        - //test
+        - //test2
+        items:
+          type: string
+        type: array
+      id:
+        description: post identifier
+        type: integer
+      latitude:
+        description: represent coordinate (optional).
+        example: 49.388093
+        format: float64
+        type: number
+      location:
+        description: from additional table of DataBase (optional)
+        example: University of Iceland
+        maxLength: 255
+        minLength: 1
+        type: string
+      longitude:
+        description: represent coordinate (optional).
+        example: 29.959573
+        format: float64
+        type: number
+      media:
+        $ref: '#/definitions/media.Media'
+        description: (read only) (optional)
+        type: object
+      region:
+        description: from additional table of DataBase (optional)
+        example: Reykjavik
+        maxLength: 255
+        minLength: 1
+        type: string
+      tagProfile:
+        default: false
+        description: need return userId? (optional)
+        example: false
+        type: boolean
+      text:
+        description: post text (required). Can be omitted on update
+        maxLength: 4096
+        minLength: 1
+        type: string
+      updated:
+        description: (readonly)
+        example: 1542070388826
+        format: timestamp in millis
+        type: integer
+      userId:
+        description: user identifier (required). Can be omitted on update
+        type: integer
+      viewRange:
+        default: 20037850
+        description: half of distance for entire globe in meters (optional)
+        example: 20037850
+        type: integer
+    type: object
+  tools.JsonTimestamp:
+    type: object
+  user.PreparedProfile:
+    properties:
+      activitiesAndInterests:
+        items:
+          type: string
+        type: array
+      activitiesAndInterestsPrivacy:
+        type: boolean
+      age:
+        type: integer
+      agePrivacy:
+        type: boolean
+      archivesPrivacy:
+        type: boolean
+      bio:
+        type: string
+      bioPrivacy:
+        type: boolean
+      city:
+        type: string
+      cityPrivacy:
+        type: boolean
+      country:
+        type: string
+      countryPrivacy:
+        type: boolean
+      deviceToken:
+        type: string
+      email:
+        type: string
+      emailPrivacy:
+        type: boolean
+      ethnicity:
+        type: string
+      ethnicityPrivacy:
+        type: boolean
+      feedsPrivacy:
+        type: boolean
+      gender:
+        type: string
+      genderPrivacy:
+        type: boolean
+      height:
+        type: integer
+      heightPrivacy:
+        type: boolean
+      highlightsPrivacy:
+        type: boolean
+      id:
+        type: integer
+      latitude:
+        type: number
+      locationPrivacy:
+        type: boolean
+      longitude:
+        type: number
+      media:
+        $ref: '#/definitions/media.Media'
+        type: object
+      name:
+        type: string
+      phone:
+        type: string
+      phonePrivacy:
+        type: boolean
+      profession:
+        type: string
+      professionPrivacy:
+        type: boolean
+      relationshipStatus:
+        type: string
+      relationshipStatusPrivacy:
+        type: boolean
+      username:
+        type: string
+      visibility:
+        type: integer
+      website:
+        type: string
+      websitePrivacy:
+        type: boolean
+      weight:
+        type: integer
+      weightPrivacy:
+        type: boolean
+    type: object
+  user.Profile:
+    properties:
+      activitiesAndInterests:
+        description: (optional)
+        items:
+          type: string
+        type: array
+      activitiesAndInterestsIds:
+        description: (optional)
+        items:
+          type: integer
+        type: array
+      activitiesAndInterestsPrivacy:
+        default: false
+        description: (optional)
+        example: false
+        type: boolean
+      age:
+        description: (optional)
+        type: integer
+      agePrivacy:
+        default: false
+        description: (optional)
+        example: false
+        type: boolean
+      archivesPrivacy:
+        default: false
+        description: (optional)
+        example: false
+        type: boolean
+      bio:
+        description: (optional)
+        type: string
+      bioPrivacy:
+        default: false
+        description: (optional)
+        example: false
+        type: boolean
+      city:
+        description: (optional)
+        type: string
+      cityId:
+        description: (optional)
+        type: integer
+      cityPrivacy:
+        default: false
+        description: (optional)
+        example: false
+        type: boolean
+      country:
+        description: (optional)
+        type: string
+      countryId:
+        description: (optional)
+        type: integer
+      countryPrivacy:
+        default: false
+        description: (optional)
+        example: false
+        type: boolean
+      deviceToken:
+        type: string
+      email:
+        type: string
+      emailPrivacy:
+        default: false
+        description: (optional)
+        example: false
+        type: boolean
+      ethnicity:
+        description: (optional)
+        type: string
+      ethnicityId:
+        description: (optional)
+        type: integer
+      ethnicityPrivacy:
+        default: false
+        description: (optional)
+        example: false
+        type: boolean
+      feedsPrivacy:
+        default: false
+        description: (optional)
+        example: false
+        type: boolean
+      gender:
+        description: (optional)
+        type: string
+      genderId:
+        description: (optional)
+        type: integer
+      genderPrivacy:
+        default: false
+        description: (optional)
+        example: false
+        type: boolean
+      height:
+        description: (optional)
+        type: integer
+      heightPrivacy:
+        default: false
+        description: (optional)
+        example: false
+        type: boolean
+      highlightsPrivacy:
+        default: false
+        description: (optional)
+        example: false
+        type: boolean
+      id:
+        description: user identifier (required)
+        type: integer
+      latitude:
+        description: (optional)
+        type: number
+      locationPrivacy:
+        default: false
+        description: (optional)
+        example: false
+        type: boolean
+      longitude:
+        description: (optional)
+        type: number
+      media:
+        $ref: '#/definitions/media.Media'
+        description: (read only) (optional)
+        type: object
+      name:
+        default: "false"
+        description: (optional)
+        example: "false"
+        type: string
+      password:
+        type: string
+      phone:
+        description: (optional)
+        type: string
+      phonePrivacy:
+        default: false
+        description: (optional)
+        example: false
+        type: boolean
+      profession:
+        description: (optional)
+        type: string
+      professionId:
+        description: (optional)
+        type: integer
+      professionPrivacy:
+        default: false
+        description: (optional)
+        example: false
+        type: boolean
+      relationshipStatus:
+        description: (optional)
+        type: string
+      relationshipStatusId:
+        description: (optional)
+        type: integer
+      relationshipStatusPrivacy:
+        default: false
+        description: (optional)
+        example: false
+        type: boolean
+      username:
+        type: string
+      visibility:
+        description: (optional)
+        type: integer
+      website:
+        description: (optional)
+        type: string
+      websitePrivacy:
+        default: false
+        description: (optional)
+        example: false
+        type: boolean
+      weight:
+        description: (optional)
+        type: integer
+      weightPrivacy:
+        default: false
+        description: (optional)
+        example: false
+        type: boolean
+    type: object
+  user.SignInRequest:
+    properties:
+      login:
+        description: (required)
+        maxLength: 50
+        minLength: 3
+        type: string
+      password:
+        description: (required)
+        maxLength: 255
+        minLength: 6
+        type: string
+    type: object
+  user.SignUpRequest:
+    properties:
+      deviceToken:
+        description: (optional)
+        type: string
+      email:
+        description: (required)
+        format: email
+        maxLength: 255
+        minLength: 3
+        type: string
+      password:
+        description: (required)
+        maxLength: 255
+        minLength: 6
+        type: string
+      username:
+        description: (required)
+        maxLength: 50
+        minLength: 3
+        type: string
+    type: object
+host: api.api.is
+info:
+  contact: {}
+  description: This is Swagger docs for Digo API
+  license: {}
+  title: Digo API
+  version: "1.0"
+paths:
+  /user/signIn:
+    post:
+      consumes:
+      - application/json
+      description: get a user by params
+      parameters:
+      - description: User params
+        in: body
+        name: account
+        required: true
+        schema:
+          $ref: '#/definitions/user.SignInRequest'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.AuthAPIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      summary: Get a user from the DB
+      tags:
+      - auth
+  /user/signUp:
+    post:
+      consumes:
+      - application/json
+      description: create new user by params
+      parameters:
+      - description: User params
+        in: body
+        name: account
+        required: true
+        schema:
+          $ref: '#/definitions/user.SignUpRequest'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.AuthAPIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      summary: Add a new user to the DB
+      tags:
+      - auth
+  /v1/dictionary/activitiesAndInterests:
+    get:
+      consumes:
+      - application/json
+      description: Get activities and interests dictionary
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.DictionaryAPIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      summary: Get activities and interests dictionary items
+      tags:
+      - dictionaries
+  /v1/dictionary/areas:
+    get:
+      consumes:
+      - application/json
+      description: Get area dictionary
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.DictionaryAPIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      summary: Get area dictionary items
+      tags:
+      - dictionaries
+  /v1/dictionary/cities:
+    get:
+      consumes:
+      - application/json
+      description: Get city dictionary
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.DictionaryAPIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      summary: Get cities dictionary items
+      tags:
+      - dictionaries
+  /v1/dictionary/continents:
+    get:
+      consumes:
+      - application/json
+      description: Get continent dictionary
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.DictionaryAPIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      summary: Get continent dictionary items
+      tags:
+      - dictionaries
+  /v1/dictionary/countries:
+    get:
+      consumes:
+      - application/json
+      description: Get country dictionary
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.DictionaryAPIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      summary: Get countries dictionary items
+      tags:
+      - dictionaries
+  /v1/dictionary/ethnicities:
+    get:
+      consumes:
+      - application/json
+      description: Get ethnicity dictionary
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.DictionaryAPIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      summary: Get ethnicities dictionary items
+      tags:
+      - dictionaries
+  /v1/dictionary/genders:
+    get:
+      consumes:
+      - application/json
+      description: Get gender dictionary
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.DictionaryAPIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      summary: Get genders dictionary items
+      tags:
+      - dictionaries
+  /v1/dictionary/locations:
+    get:
+      consumes:
+      - application/json
+      description: Get location dictionary
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.DictionaryAPIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      summary: Get location dictionary items
+      tags:
+      - dictionaries
+  /v1/dictionary/professions:
+    get:
+      consumes:
+      - application/json
+      description: Get profession dictionary
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.DictionaryAPIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      summary: Get professions dictionary items
+      tags:
+      - dictionaries
+  /v1/dictionary/regions:
+    get:
+      consumes:
+      - application/json
+      description: Get region dictionary
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.DictionaryAPIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      summary: Get region dictionary items
+      tags:
+      - dictionaries
+  /v1/dictionary/relationshipStatuses:
+    get:
+      consumes:
+      - application/json
+      description: Get relationship dictionary
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.DictionaryAPIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      summary: Get relationship statuses dictionary items
+      tags:
+      - dictionaries
+  /v1/event/:
+    post:
+      consumes:
+      - application/json
+      description: create new event by params
+      parameters:
+      - description: Event params
+        in: body
+        name: event
+        required: true
+        schema:
+          $ref: '#/definitions/event.EventSwagger'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.CreateEventAPIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Create a new event to the DB
+      tags:
+      - events
+  /v1/event/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get event details for selected user
+      parameters:
+      - description: Event id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.EventAPIResponseSwagger'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Get user event
+      tags:
+      - events
+    put:
+      consumes:
+      - application/json
+      description: update a event by params
+      parameters:
+      - description: Event id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Event params
+        in: body
+        name: event
+        required: true
+        schema:
+          $ref: '#/definitions/event.EventSwagger'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Update a event in DB
+      tags:
+      - events
+  /v1/event/{id}/media:
+    delete:
+      description: delete a event media
+      parameters:
+      - description: Event id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Delete a event media
+      tags:
+      - events
+    post:
+      consumes:
+      - multipart/form-data
+      description: upload a event media
+      parameters:
+      - description: Event id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Media file
+        in: formData
+        name: media_file
+        required: true
+        type: file
+      - description: Media type. unknown type = 0, image type = 1, video type = 2
+        in: formData
+        name: media_type
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Update a post media
+      tags:
+      - events
+  /v1/events/nearby:
+    post:
+      consumes:
+      - application/json
+      description: Get nearby events
+      parameters:
+      - description: Nearby items request
+        in: body
+        name: nearestRequest
+        required: true
+        schema:
+          $ref: '#/definitions/handler.NearbyItemsRequest'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.EventsAPIResponseSwagger'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      summary: Get nearby events
+      tags:
+      - events
+  /v1/media/{folder}/{filename}:
+    get:
+      description: get media
+      parameters:
+      - description: 1ac4f9a135d204e71ed41fa8accfbe42
+        in: path
+        name: folder
+        required: true
+        type: string
+      - description: avatar.png
+        in: path
+        name: filename
+        required: true
+        type: string
+      produces:
+      - image/png
+      - image/jpeg
+      - image/gif
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: integer
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Get media from DB
+      tags:
+      - media
+  /v1/post/:
+    post:
+      consumes:
+      - application/json
+      description: create new post by params
+      parameters:
+      - description: Post params
+        in: body
+        name: post
+        required: true
+        schema:
+          $ref: '#/definitions/post.PostSwagger'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.CreatePostAPIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Create a new post to the DB
+      tags:
+      - posts
+  /v1/post/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get post details for selected user
+      parameters:
+      - description: Post id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.PostAPIResponseSwagger'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Get user post
+      tags:
+      - posts
+    put:
+      consumes:
+      - application/json
+      description: update a post by params
+      parameters:
+      - description: Post id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Post params
+        in: body
+        name: post
+        required: true
+        schema:
+          $ref: '#/definitions/post.PostSwagger'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Update a post in DB
+      tags:
+      - posts
+  /v1/post/{id}/media:
+    delete:
+      description: delete a post media
+      parameters:
+      - description: Post id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Delete a post media
+      tags:
+      - posts
+    post:
+      consumes:
+      - multipart/form-data
+      description: upload a post media
+      parameters:
+      - description: Post id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Media file
+        in: formData
+        name: media_file
+        required: true
+        type: file
+      - description: Media type. unknown type = 0, image type = 1, video type = 2
+        in: formData
+        name: media_type
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Update a post media
+      tags:
+      - posts
+  /v1/posts/nearby:
+    post:
+      consumes:
+      - application/json
+      description: Get nearby posts
+      parameters:
+      - description: Nearby items request
+        in: body
+        name: nearestRequest
+        required: true
+        schema:
+          $ref: '#/definitions/handler.NearbyItemsRequest'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.PostsAPIResponseSwagger'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      summary: Get nearby posts
+      tags:
+      - posts
+  /v1/user/profile/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get profile details for selected user
+      parameters:
+      - description: User id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ProfileAPIResponseSwagger'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Get user profile
+      tags:
+      - users
+    put:
+      consumes:
+      - application/json
+      description: Change profile details for selected user
+      parameters:
+      - description: User id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: User params
+        in: body
+        name: account
+        required: true
+        schema:
+          $ref: '#/definitions/user.Profile'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Change user profile
+      tags:
+      - users
+  /v1/user/profile/{id}/media:
+    delete:
+      description: delete a profile media
+      parameters:
+      - description: User id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Delete a profile media
+      tags:
+      - users
+    post:
+      consumes:
+      - multipart/form-data
+      description: upload a profile media
+      parameters:
+      - description: User id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Media file
+        in: formData
+        name: media_file
+        required: true
+        type: file
+      - description: Media type. unknown type = 0, image type = 1, video type = 2
+        in: formData
+        name: media_type
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Update a profile media
+      tags:
+      - users
+  /v1/user/setDeviceToken:
+    post:
+      consumes:
+      - application/json
+      description: Change device token for selected user
+      parameters:
+      - description: User params
+        in: body
+        name: account
+        required: true
+        schema:
+          $ref: '#/definitions/handler.ChangeTokenRequest'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Change device token
+      tags:
+      - users
+  /v1/users/:
+    post:
+      consumes:
+      - application/json
+      description: Get users by ids
+      parameters:
+      - description: Users Ids
+        in: body
+        name: ids
+        required: true
+        schema:
+          $ref: '#/definitions/handler.UsersRequest'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.UsersAPIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Get users by ids
+      tags:
+      - users
+  /v1/users/{id}/chats:
+    get:
+      consumes:
+      - application/json
+      description: get chats
+      parameters:
+      - description: User Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ChatsResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Get chats
+      tags:
+      - chat
+  /v1/users/{id}/follow:
+    post:
+      consumes:
+      - application/json
+      description: subscribe to another user
+      parameters:
+      - description: User Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Friend request
+        in: body
+        name: follow_request
+        required: true
+        schema:
+          $ref: '#/definitions/handler.FollowRequest'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Follow user
+      tags:
+      - followers
+  /v1/users/{id}/followers/:
+    get:
+      consumes:
+      - application/json
+      description: get followers
+      parameters:
+      - description: User Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.FollowersResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Get followers
+      tags:
+      - followers
+  /v1/users/{id}/followers/{followee_id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete subscription
+      parameters:
+      - description: User Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Followee Id
+        in: path
+        name: followee_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Delete subscriptions
+      tags:
+      - followers
+  /v1/users/{id}/friends/:
+    get:
+      consumes:
+      - application/json
+      description: get friends requests
+      parameters:
+      - description: User Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.FriendsResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Get friends requests
+      tags:
+      - friends
+  /v1/users/{id}/friends/{friend_id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete friend request
+      parameters:
+      - description: User Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Friend Id
+        in: path
+        name: friend_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Delete friend request
+      tags:
+      - friends
+  /v1/users/{id}/friends/accept:
+    post:
+      consumes:
+      - application/json
+      description: accept user request
+      parameters:
+      - description: User Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Friend request
+        in: body
+        name: friend
+        required: true
+        schema:
+          $ref: '#/definitions/handler.FriendRequest'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Accept user request
+      tags:
+      - friends
+  /v1/users/{id}/friends/add:
+    post:
+      consumes:
+      - application/json
+      description: create new friend request
+      parameters:
+      - description: User Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Friend request
+        in: body
+        name: friend
+        required: true
+        schema:
+          $ref: '#/definitions/handler.FriendRequest'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Create a new friend request
+      tags:
+      - friends
+  /v1/users/{id}/messages/{friend_id}:
+    get:
+      consumes:
+      - application/json
+      description: get messages between users
+      parameters:
+      - description: User Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Friend user Id
+        in: path
+        name: friend_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ChatMessagesResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Get chat messages
+      tags:
+      - chat
+    post:
+      consumes:
+      - application/json
+      description: send message to friend
+      parameters:
+      - description: User Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Friend Id
+        in: path
+        name: friend_id
+        required: true
+        type: integer
+      - description: Message
+        in: body
+        name: send_message
+        required: true
+        schema:
+          $ref: '#/definitions/handler.SendMessageRequest'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Send message
+      tags:
+      - chat
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

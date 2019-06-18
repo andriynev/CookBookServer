@@ -1,0 +1,3807 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is Swagger docs for Digo API",
+        "title": "Digo API",
+        "contact": {},
+        "license": {},
+        "version": "1.0"
+    },
+    "host": "api.digo.is",
+    "basePath": "/",
+    "paths": {
+        "/user/signIn": {
+            "post": {
+                "description": "get a user by params",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Get a user from the DB",
+                "parameters": [
+                    {
+                        "description": "User params",
+                        "name": "account",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/user.SignInRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.AuthAPIResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/signUp": {
+            "post": {
+                "description": "create new user by params",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Add a new user to the DB",
+                "parameters": [
+                    {
+                        "description": "User params",
+                        "name": "account",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/user.SignUpRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.AuthAPIResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dictionary/activitiesAndInterests": {
+            "get": {
+                "description": "Get activities and interests dictionary",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "dictionaries"
+                ],
+                "summary": "Get activities and interests dictionary items",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.DictionaryAPIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dictionary/areas": {
+            "get": {
+                "description": "Get area dictionary",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "dictionaries"
+                ],
+                "summary": "Get area dictionary items",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.DictionaryAPIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dictionary/cities": {
+            "get": {
+                "description": "Get city dictionary",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "dictionaries"
+                ],
+                "summary": "Get cities dictionary items",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.DictionaryAPIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dictionary/continents": {
+            "get": {
+                "description": "Get continent dictionary",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "dictionaries"
+                ],
+                "summary": "Get continent dictionary items",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.DictionaryAPIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dictionary/countries": {
+            "get": {
+                "description": "Get country dictionary",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "dictionaries"
+                ],
+                "summary": "Get countries dictionary items",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.DictionaryAPIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dictionary/ethnicities": {
+            "get": {
+                "description": "Get ethnicity dictionary",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "dictionaries"
+                ],
+                "summary": "Get ethnicities dictionary items",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.DictionaryAPIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dictionary/genders": {
+            "get": {
+                "description": "Get gender dictionary",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "dictionaries"
+                ],
+                "summary": "Get genders dictionary items",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.DictionaryAPIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dictionary/locations": {
+            "get": {
+                "description": "Get location dictionary",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "dictionaries"
+                ],
+                "summary": "Get location dictionary items",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.DictionaryAPIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dictionary/professions": {
+            "get": {
+                "description": "Get profession dictionary",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "dictionaries"
+                ],
+                "summary": "Get professions dictionary items",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.DictionaryAPIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dictionary/regions": {
+            "get": {
+                "description": "Get region dictionary",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "dictionaries"
+                ],
+                "summary": "Get region dictionary items",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.DictionaryAPIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/dictionary/relationshipStatuses": {
+            "get": {
+                "description": "Get relationship dictionary",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "dictionaries"
+                ],
+                "summary": "Get relationship statuses dictionary items",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.DictionaryAPIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/event/": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "create new event by params",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "events"
+                ],
+                "summary": "Create a new event to the DB",
+                "parameters": [
+                    {
+                        "description": "Event params",
+                        "name": "event",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/event.EventSwagger"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.CreateEventAPIResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/event/{id}": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "Get event details for selected user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "events"
+                ],
+                "summary": "Get user event",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Event id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.EventAPIResponseSwagger"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "update a event by params",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "events"
+                ],
+                "summary": "Update a event in DB",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Event id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Event params",
+                        "name": "event",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/event.EventSwagger"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/event/{id}/media": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "upload a event media",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "events"
+                ],
+                "summary": "Update a post media",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Event id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "file",
+                        "description": "Media file",
+                        "name": "media_file",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Media type. unknown type = 0, image type = 1, video type = 2",
+                        "name": "media_type",
+                        "in": "formData"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "delete a event media",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "events"
+                ],
+                "summary": "Delete a event media",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Event id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/events/nearby": {
+            "post": {
+                "description": "Get nearby events",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "events"
+                ],
+                "summary": "Get nearby events",
+                "parameters": [
+                    {
+                        "description": "Nearby items request",
+                        "name": "nearestRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.NearbyItemsRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.EventsAPIResponseSwagger"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/media/{folder}/{filename}": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "get media",
+                "produces": [
+                    "image/png",
+                    "image/jpeg",
+                    "image/gif",
+                    "application/json"
+                ],
+                "tags": [
+                    "media"
+                ],
+                "summary": "Get media from DB",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "1ac4f9a135d204e71ed41fa8accfbe42",
+                        "name": "folder",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "avatar.png",
+                        "name": "filename",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/post/": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "create new post by params",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "posts"
+                ],
+                "summary": "Create a new post to the DB",
+                "parameters": [
+                    {
+                        "description": "Post params",
+                        "name": "post",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/post.PostSwagger"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.CreatePostAPIResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/post/{id}": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "Get post details for selected user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "posts"
+                ],
+                "summary": "Get user post",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Post id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.PostAPIResponseSwagger"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "update a post by params",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "posts"
+                ],
+                "summary": "Update a post in DB",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Post id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Post params",
+                        "name": "post",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/post.PostSwagger"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/post/{id}/media": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "upload a post media",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "posts"
+                ],
+                "summary": "Update a post media",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Post id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "file",
+                        "description": "Media file",
+                        "name": "media_file",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Media type. unknown type = 0, image type = 1, video type = 2",
+                        "name": "media_type",
+                        "in": "formData"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "delete a post media",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "posts"
+                ],
+                "summary": "Delete a post media",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Post id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/posts/nearby": {
+            "post": {
+                "description": "Get nearby posts",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "posts"
+                ],
+                "summary": "Get nearby posts",
+                "parameters": [
+                    {
+                        "description": "Nearby items request",
+                        "name": "nearestRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.NearbyItemsRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.PostsAPIResponseSwagger"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/user/profile/{id}": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "Get profile details for selected user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "users"
+                ],
+                "summary": "Get user profile",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "User id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.ProfileAPIResponseSwagger"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "Change profile details for selected user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "users"
+                ],
+                "summary": "Change user profile",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "User id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "User params",
+                        "name": "account",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/user.Profile"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/user/profile/{id}/media": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "upload a profile media",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "users"
+                ],
+                "summary": "Update a profile media",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "User id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "file",
+                        "description": "Media file",
+                        "name": "media_file",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Media type. unknown type = 0, image type = 1, video type = 2",
+                        "name": "media_type",
+                        "in": "formData"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "delete a profile media",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "users"
+                ],
+                "summary": "Delete a profile media",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "User id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/user/setDeviceToken": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "Change device token for selected user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "users"
+                ],
+                "summary": "Change device token",
+                "parameters": [
+                    {
+                        "description": "User params",
+                        "name": "account",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.ChangeTokenRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/users/": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "Get users by ids",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "users"
+                ],
+                "summary": "Get users by ids",
+                "parameters": [
+                    {
+                        "description": "Users Ids",
+                        "name": "ids",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.UsersRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.UsersAPIResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/users/{id}/chats": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "get chats",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "chat"
+                ],
+                "summary": "Get chats",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "User Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.ChatsResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/users/{id}/follow": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "subscribe to another user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "followers"
+                ],
+                "summary": "Follow user",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "User Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Friend request",
+                        "name": "follow_request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.FollowRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/users/{id}/followers/": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "get followers",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "followers"
+                ],
+                "summary": "Get followers",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "User Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.FollowersResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/users/{id}/followers/{followee_id}": {
+            "delete": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "delete subscription",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "followers"
+                ],
+                "summary": "Delete subscriptions",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "User Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Followee Id",
+                        "name": "followee_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/users/{id}/friends/": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "get friends requests",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "friends"
+                ],
+                "summary": "Get friends requests",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "User Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.FriendsResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/users/{id}/friends/accept": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "accept user request",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "friends"
+                ],
+                "summary": "Accept user request",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "User Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Friend request",
+                        "name": "friend",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.FriendRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/users/{id}/friends/add": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "create new friend request",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "friends"
+                ],
+                "summary": "Create a new friend request",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "User Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Friend request",
+                        "name": "friend",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.FriendRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/users/{id}/friends/{friend_id}": {
+            "delete": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "delete friend request",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "friends"
+                ],
+                "summary": "Delete friend request",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "User Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Friend Id",
+                        "name": "friend_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/users/{id}/messages/{friend_id}": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "get messages between users",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "chat"
+                ],
+                "summary": "Get chat messages",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "User Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Friend user Id",
+                        "name": "friend_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.ChatMessagesResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "send message to friend",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "chat"
+                ],
+                "summary": "Send message",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "User Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Friend Id",
+                        "name": "friend_id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Message",
+                        "name": "send_message",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.SendMessageRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.APIResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "chat.Chat": {
+            "type": "object",
+            "properties": {
+                "created": {
+                    "type": "integer",
+                    "format": "timestamp in millis",
+                    "example": 1542070388826
+                },
+                "message": {
+                    "type": "string"
+                },
+                "receiverId": {
+                    "type": "integer"
+                },
+                "senderId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "chat.Message": {
+            "type": "object",
+            "properties": {
+                "created": {
+                    "type": "integer",
+                    "format": "timestamp in millis",
+                    "example": 1542070388826
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "receiverId": {
+                    "type": "integer"
+                },
+                "senderId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "event.EventSwagger": {
+            "type": "object",
+            "properties": {
+                "added": {
+                    "description": "(readonly)",
+                    "type": "integer",
+                    "format": "timestamp in millis",
+                    "example": 1542070388826
+                },
+                "area": {
+                    "description": "from additional table of DataBase (optional)",
+                    "type": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "example": "Capitol Area"
+                },
+                "continent": {
+                    "description": "from additional table of DataBase (optional)",
+                    "type": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "example": "Europe"
+                },
+                "country": {
+                    "description": "from additional table of DataBase (optional)",
+                    "type": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "example": "Iceland"
+                },
+                "date": {
+                    "description": "event date (required)",
+                    "type": "integer",
+                    "format": "timestamp in millis",
+                    "example": 1542070388826
+                },
+                "description": {
+                    "description": "(required)",
+                    "type": "string",
+                    "maxLength": 4096,
+                    "minLength": 1
+                },
+                "endDate": {
+                    "description": "event date (optional)",
+                    "type": "integer",
+                    "format": "timestamp in millis",
+                    "example": 1542070388826
+                },
+                "id": {
+                    "description": "event identifier (required)",
+                    "type": "integer"
+                },
+                "latitude": {
+                    "description": "represent coordinate (optional).",
+                    "type": "number",
+                    "format": "float64",
+                    "example": 49.388093
+                },
+                "location": {
+                    "description": "from additional table of DataBase (optional)",
+                    "type": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "example": "University of Iceland"
+                },
+                "longitude": {
+                    "description": "represent coordinate (optional).",
+                    "type": "number",
+                    "format": "float64",
+                    "example": 29.959573
+                },
+                "media": {
+                    "description": "(read only) (optional)",
+                    "type": "object",
+                    "$ref": "#/definitions/media.Media"
+                },
+                "name": {
+                    "description": "(required)",
+                    "type": "string",
+                    "maxLength": 255,
+                    "minLength": 1
+                },
+                "region": {
+                    "description": "from additional table of DataBase (optional)",
+                    "type": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "example": "Reykjavik"
+                },
+                "tagProfile": {
+                    "description": "is need return userId (optional)",
+                    "type": "boolean"
+                },
+                "type": {
+                    "description": "is public profile? (optional)",
+                    "type": "boolean",
+                    "default": true,
+                    "example": true
+                },
+                "updated": {
+                    "description": "(readonly)",
+                    "type": "integer",
+                    "format": "timestamp in millis",
+                    "example": 1542070388826
+                },
+                "userId": {
+                    "description": "user identifier (required)",
+                    "type": "integer"
+                }
+            }
+        },
+        "handler.APIResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "handler.AuthAPIResponse": {
+            "type": "object",
+            "properties": {
+                "accessToken": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "handler.ChangeTokenRequest": {
+            "type": "object",
+            "properties": {
+                "deviceToken": {
+                    "description": "firebase token (required)",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "user identifier (required)",
+                    "type": "integer"
+                }
+            }
+        },
+        "handler.ChatMessagesResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/chat.Message"
+                    }
+                },
+                "result": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "handler.ChatsResponse": {
+            "type": "object",
+            "properties": {
+                "chats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/chat.Chat"
+                    }
+                },
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "handler.CreateEventAPIResponse": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "handler.CreatePostAPIResponse": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "handler.DictionaryAPIResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean"
+                },
+                "values": {
+                    "type": "object"
+                }
+            }
+        },
+        "handler.EventAPIResponseSwagger": {
+            "type": "object",
+            "properties": {
+                "added": {
+                    "description": "(readonly)",
+                    "type": "integer",
+                    "format": "timestamp in millis",
+                    "example": 1542070388826
+                },
+                "area": {
+                    "description": "from additional table of DataBase (optional)",
+                    "type": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "example": "Capitol Area"
+                },
+                "continent": {
+                    "description": "from additional table of DataBase (optional)",
+                    "type": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "example": "Europe"
+                },
+                "country": {
+                    "description": "from additional table of DataBase (optional)",
+                    "type": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "example": "Iceland"
+                },
+                "date": {
+                    "description": "event date (required)",
+                    "type": "integer",
+                    "format": "timestamp in millis",
+                    "example": 1542070388826
+                },
+                "description": {
+                    "description": "(required)",
+                    "type": "string",
+                    "maxLength": 4096,
+                    "minLength": 1
+                },
+                "endDate": {
+                    "description": "event date (optional)",
+                    "type": "integer",
+                    "format": "timestamp in millis",
+                    "example": 1542070388826
+                },
+                "id": {
+                    "description": "event identifier (required)",
+                    "type": "integer"
+                },
+                "latitude": {
+                    "description": "represent coordinate (optional).",
+                    "type": "number",
+                    "format": "float64",
+                    "example": 49.388093
+                },
+                "location": {
+                    "description": "from additional table of DataBase (optional)",
+                    "type": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "example": "University of Iceland"
+                },
+                "longitude": {
+                    "description": "represent coordinate (optional).",
+                    "type": "number",
+                    "format": "float64",
+                    "example": 29.959573
+                },
+                "media": {
+                    "description": "(read only) (optional)",
+                    "type": "object",
+                    "$ref": "#/definitions/media.Media"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "name": {
+                    "description": "(required)",
+                    "type": "string",
+                    "maxLength": 255,
+                    "minLength": 1
+                },
+                "region": {
+                    "description": "from additional table of DataBase (optional)",
+                    "type": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "example": "Reykjavik"
+                },
+                "result": {
+                    "type": "boolean"
+                },
+                "tagProfile": {
+                    "description": "is need return userId (optional)",
+                    "type": "boolean"
+                },
+                "type": {
+                    "description": "is public profile? (optional)",
+                    "type": "boolean",
+                    "default": true,
+                    "example": true
+                },
+                "updated": {
+                    "description": "(readonly)",
+                    "type": "integer",
+                    "format": "timestamp in millis",
+                    "example": 1542070388826
+                },
+                "userId": {
+                    "description": "user identifier (required)",
+                    "type": "integer"
+                }
+            }
+        },
+        "handler.EventsAPIResponseSwagger": {
+            "type": "object",
+            "properties": {
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/event.EventSwagger"
+                    }
+                },
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "handler.FollowRequest": {
+            "type": "object",
+            "properties": {
+                "subscribeToUserId": {
+                    "type": "integer"
+                },
+                "userId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "handler.FollowersResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "handler.FriendRequest": {
+            "type": "object",
+            "properties": {
+                "friendId": {
+                    "type": "integer"
+                },
+                "userId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "handler.FriendsResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "handler.NearbyItemsRequest": {
+            "type": "object",
+            "properties": {
+                "distance": {
+                    "description": "(required)",
+                    "type": "integer",
+                    "format": "in meters",
+                    "example": 42000
+                },
+                "latitude": {
+                    "description": "(required)",
+                    "type": "number",
+                    "example": 51.318619
+                },
+                "longitude": {
+                    "description": "(required)",
+                    "type": "number",
+                    "example": 28.805507
+                }
+            }
+        },
+        "handler.PostAPIResponseSwagger": {
+            "type": "object",
+            "properties": {
+                "added": {
+                    "description": "(readonly)",
+                    "type": "integer",
+                    "format": "timestamp in millis",
+                    "example": 1542070388826
+                },
+                "area": {
+                    "description": "from additional table of DataBase (optional)",
+                    "type": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "example": "Capitol Area"
+                },
+                "continent": {
+                    "description": "from additional table of DataBase (optional)",
+                    "type": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "example": "Europe"
+                },
+                "country": {
+                    "description": "from additional table of DataBase (optional)",
+                    "type": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "example": "Iceland"
+                },
+                "dashTags": {
+                    "description": "(optional)",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "#test",
+                        "#test2"
+                    ]
+                },
+                "eventId": {
+                    "description": "event identifier (optional).",
+                    "type": "integer"
+                },
+                "hashTags": {
+                    "description": "(optional)",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "//test",
+                        "//test2"
+                    ]
+                },
+                "id": {
+                    "description": "post identifier",
+                    "type": "integer"
+                },
+                "latitude": {
+                    "description": "represent coordinate (optional).",
+                    "type": "number",
+                    "format": "float64",
+                    "example": 49.388093
+                },
+                "location": {
+                    "description": "from additional table of DataBase (optional)",
+                    "type": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "example": "University of Iceland"
+                },
+                "longitude": {
+                    "description": "represent coordinate (optional).",
+                    "type": "number",
+                    "format": "float64",
+                    "example": 29.959573
+                },
+                "media": {
+                    "description": "(read only) (optional)",
+                    "type": "object",
+                    "$ref": "#/definitions/media.Media"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "region": {
+                    "description": "from additional table of DataBase (optional)",
+                    "type": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "example": "Reykjavik"
+                },
+                "result": {
+                    "type": "boolean"
+                },
+                "tagProfile": {
+                    "description": "need return userId? (optional)",
+                    "type": "boolean",
+                    "default": false,
+                    "example": false
+                },
+                "text": {
+                    "description": "post text (required). Can be omitted on update",
+                    "type": "string",
+                    "maxLength": 4096,
+                    "minLength": 1
+                },
+                "updated": {
+                    "description": "(readonly)",
+                    "type": "integer",
+                    "format": "timestamp in millis",
+                    "example": 1542070388826
+                },
+                "userId": {
+                    "description": "user identifier (required). Can be omitted on update",
+                    "type": "integer"
+                },
+                "viewRange": {
+                    "description": "half of distance for entire globe in meters (optional)",
+                    "type": "integer",
+                    "default": 20037850,
+                    "example": 20037850
+                }
+            }
+        },
+        "handler.PostsAPIResponseSwagger": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "posts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/post.PostSwagger"
+                    }
+                },
+                "result": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "handler.ProfileAPIResponseSwagger": {
+            "type": "object",
+            "properties": {
+                "activitiesAndInterests": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "activitiesAndInterestsPrivacy": {
+                    "type": "boolean"
+                },
+                "age": {
+                    "type": "integer"
+                },
+                "agePrivacy": {
+                    "type": "boolean"
+                },
+                "archivesPrivacy": {
+                    "type": "boolean"
+                },
+                "bio": {
+                    "type": "string"
+                },
+                "bioPrivacy": {
+                    "type": "boolean"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "cityPrivacy": {
+                    "type": "boolean"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "countryPrivacy": {
+                    "type": "boolean"
+                },
+                "deviceToken": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "emailPrivacy": {
+                    "type": "boolean"
+                },
+                "ethnicity": {
+                    "type": "string"
+                },
+                "ethnicityPrivacy": {
+                    "type": "boolean"
+                },
+                "feedsPrivacy": {
+                    "type": "boolean"
+                },
+                "gender": {
+                    "type": "string"
+                },
+                "genderPrivacy": {
+                    "type": "boolean"
+                },
+                "height": {
+                    "type": "integer"
+                },
+                "heightPrivacy": {
+                    "type": "boolean"
+                },
+                "highlightsPrivacy": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "latitude": {
+                    "type": "number"
+                },
+                "locationPrivacy": {
+                    "type": "boolean"
+                },
+                "longitude": {
+                    "type": "number"
+                },
+                "media": {
+                    "description": "(optional). Omitted, if media file was not uploaded",
+                    "type": "object",
+                    "$ref": "#/definitions/media.Media"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "phonePrivacy": {
+                    "type": "boolean"
+                },
+                "profession": {
+                    "type": "string"
+                },
+                "professionPrivacy": {
+                    "type": "boolean"
+                },
+                "relationshipStatus": {
+                    "type": "string"
+                },
+                "relationshipStatusPrivacy": {
+                    "type": "boolean"
+                },
+                "result": {
+                    "type": "boolean"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "visibility": {
+                    "type": "integer"
+                },
+                "website": {
+                    "type": "string"
+                },
+                "websitePrivacy": {
+                    "type": "boolean"
+                },
+                "weight": {
+                    "type": "integer"
+                },
+                "weightPrivacy": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "handler.SendMessageRequest": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "handler.UsersAPIResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean"
+                },
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/user.PreparedProfile"
+                    }
+                }
+            }
+        },
+        "handler.UsersRequest": {
+            "type": "object",
+            "properties": {
+                "usersIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "media.Media": {
+            "type": "object",
+            "properties": {
+                "format": {
+                    "description": "format (read only) (required)",
+                    "type": "string",
+                    "example": "image/png"
+                },
+                "link": {
+                    "description": "media link (read only) (required)",
+                    "type": "string",
+                    "example": "ac146571eb55d9cbde1a886dbc1f85d2/event.png"
+                },
+                "mediaType": {
+                    "description": "media type. unknown type = 0, image type = 1, video type = 2 (read only) (required)",
+                    "type": "integer",
+                    "example": 1
+                }
+            }
+        },
+        "post.PostSwagger": {
+            "type": "object",
+            "properties": {
+                "added": {
+                    "description": "(readonly)",
+                    "type": "integer",
+                    "format": "timestamp in millis",
+                    "example": 1542070388826
+                },
+                "area": {
+                    "description": "from additional table of DataBase (optional)",
+                    "type": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "example": "Capitol Area"
+                },
+                "continent": {
+                    "description": "from additional table of DataBase (optional)",
+                    "type": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "example": "Europe"
+                },
+                "country": {
+                    "description": "from additional table of DataBase (optional)",
+                    "type": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "example": "Iceland"
+                },
+                "dashTags": {
+                    "description": "(optional)",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "#test",
+                        "#test2"
+                    ]
+                },
+                "eventId": {
+                    "description": "event identifier (optional).",
+                    "type": "integer"
+                },
+                "hashTags": {
+                    "description": "(optional)",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "//test",
+                        "//test2"
+                    ]
+                },
+                "id": {
+                    "description": "post identifier",
+                    "type": "integer"
+                },
+                "latitude": {
+                    "description": "represent coordinate (optional).",
+                    "type": "number",
+                    "format": "float64",
+                    "example": 49.388093
+                },
+                "location": {
+                    "description": "from additional table of DataBase (optional)",
+                    "type": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "example": "University of Iceland"
+                },
+                "longitude": {
+                    "description": "represent coordinate (optional).",
+                    "type": "number",
+                    "format": "float64",
+                    "example": 29.959573
+                },
+                "media": {
+                    "description": "(read only) (optional)",
+                    "type": "object",
+                    "$ref": "#/definitions/media.Media"
+                },
+                "region": {
+                    "description": "from additional table of DataBase (optional)",
+                    "type": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "example": "Reykjavik"
+                },
+                "tagProfile": {
+                    "description": "need return userId? (optional)",
+                    "type": "boolean",
+                    "default": false,
+                    "example": false
+                },
+                "text": {
+                    "description": "post text (required). Can be omitted on update",
+                    "type": "string",
+                    "maxLength": 4096,
+                    "minLength": 1
+                },
+                "updated": {
+                    "description": "(readonly)",
+                    "type": "integer",
+                    "format": "timestamp in millis",
+                    "example": 1542070388826
+                },
+                "userId": {
+                    "description": "user identifier (required). Can be omitted on update",
+                    "type": "integer"
+                },
+                "viewRange": {
+                    "description": "half of distance for entire globe in meters (optional)",
+                    "type": "integer",
+                    "default": 20037850,
+                    "example": 20037850
+                }
+            }
+        },
+        "tools.JsonTimestamp": {
+            "type": "object"
+        },
+        "user.PreparedProfile": {
+            "type": "object",
+            "properties": {
+                "activitiesAndInterests": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "activitiesAndInterestsPrivacy": {
+                    "type": "boolean"
+                },
+                "age": {
+                    "type": "integer"
+                },
+                "agePrivacy": {
+                    "type": "boolean"
+                },
+                "archivesPrivacy": {
+                    "type": "boolean"
+                },
+                "bio": {
+                    "type": "string"
+                },
+                "bioPrivacy": {
+                    "type": "boolean"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "cityPrivacy": {
+                    "type": "boolean"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "countryPrivacy": {
+                    "type": "boolean"
+                },
+                "deviceToken": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "emailPrivacy": {
+                    "type": "boolean"
+                },
+                "ethnicity": {
+                    "type": "string"
+                },
+                "ethnicityPrivacy": {
+                    "type": "boolean"
+                },
+                "feedsPrivacy": {
+                    "type": "boolean"
+                },
+                "gender": {
+                    "type": "string"
+                },
+                "genderPrivacy": {
+                    "type": "boolean"
+                },
+                "height": {
+                    "type": "integer"
+                },
+                "heightPrivacy": {
+                    "type": "boolean"
+                },
+                "highlightsPrivacy": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "latitude": {
+                    "type": "number"
+                },
+                "locationPrivacy": {
+                    "type": "boolean"
+                },
+                "longitude": {
+                    "type": "number"
+                },
+                "media": {
+                    "type": "object",
+                    "$ref": "#/definitions/media.Media"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "phonePrivacy": {
+                    "type": "boolean"
+                },
+                "profession": {
+                    "type": "string"
+                },
+                "professionPrivacy": {
+                    "type": "boolean"
+                },
+                "relationshipStatus": {
+                    "type": "string"
+                },
+                "relationshipStatusPrivacy": {
+                    "type": "boolean"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "visibility": {
+                    "type": "integer"
+                },
+                "website": {
+                    "type": "string"
+                },
+                "websitePrivacy": {
+                    "type": "boolean"
+                },
+                "weight": {
+                    "type": "integer"
+                },
+                "weightPrivacy": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "user.Profile": {
+            "type": "object",
+            "properties": {
+                "activitiesAndInterests": {
+                    "description": "(optional)",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "activitiesAndInterestsIds": {
+                    "description": "(optional)",
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "activitiesAndInterestsPrivacy": {
+                    "description": "(optional)",
+                    "type": "boolean",
+                    "default": false,
+                    "example": false
+                },
+                "age": {
+                    "description": "(optional)",
+                    "type": "integer"
+                },
+                "agePrivacy": {
+                    "description": "(optional)",
+                    "type": "boolean",
+                    "default": false,
+                    "example": false
+                },
+                "archivesPrivacy": {
+                    "description": "(optional)",
+                    "type": "boolean",
+                    "default": false,
+                    "example": false
+                },
+                "bio": {
+                    "description": "(optional)",
+                    "type": "string"
+                },
+                "bioPrivacy": {
+                    "description": "(optional)",
+                    "type": "boolean",
+                    "default": false,
+                    "example": false
+                },
+                "city": {
+                    "description": "(optional)",
+                    "type": "string"
+                },
+                "cityId": {
+                    "description": "(optional)",
+                    "type": "integer"
+                },
+                "cityPrivacy": {
+                    "description": "(optional)",
+                    "type": "boolean",
+                    "default": false,
+                    "example": false
+                },
+                "country": {
+                    "description": "(optional)",
+                    "type": "string"
+                },
+                "countryId": {
+                    "description": "(optional)",
+                    "type": "integer"
+                },
+                "countryPrivacy": {
+                    "description": "(optional)",
+                    "type": "boolean",
+                    "default": false,
+                    "example": false
+                },
+                "deviceToken": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "emailPrivacy": {
+                    "description": "(optional)",
+                    "type": "boolean",
+                    "default": false,
+                    "example": false
+                },
+                "ethnicity": {
+                    "description": "(optional)",
+                    "type": "string"
+                },
+                "ethnicityId": {
+                    "description": "(optional)",
+                    "type": "integer"
+                },
+                "ethnicityPrivacy": {
+                    "description": "(optional)",
+                    "type": "boolean",
+                    "default": false,
+                    "example": false
+                },
+                "feedsPrivacy": {
+                    "description": "(optional)",
+                    "type": "boolean",
+                    "default": false,
+                    "example": false
+                },
+                "gender": {
+                    "description": "(optional)",
+                    "type": "string"
+                },
+                "genderId": {
+                    "description": "(optional)",
+                    "type": "integer"
+                },
+                "genderPrivacy": {
+                    "description": "(optional)",
+                    "type": "boolean",
+                    "default": false,
+                    "example": false
+                },
+                "height": {
+                    "description": "(optional)",
+                    "type": "integer"
+                },
+                "heightPrivacy": {
+                    "description": "(optional)",
+                    "type": "boolean",
+                    "default": false,
+                    "example": false
+                },
+                "highlightsPrivacy": {
+                    "description": "(optional)",
+                    "type": "boolean",
+                    "default": false,
+                    "example": false
+                },
+                "id": {
+                    "description": "user identifier (required)",
+                    "type": "integer"
+                },
+                "latitude": {
+                    "description": "(optional)",
+                    "type": "number"
+                },
+                "locationPrivacy": {
+                    "description": "(optional)",
+                    "type": "boolean",
+                    "default": false,
+                    "example": false
+                },
+                "longitude": {
+                    "description": "(optional)",
+                    "type": "number"
+                },
+                "media": {
+                    "description": "(read only) (optional)",
+                    "type": "object",
+                    "$ref": "#/definitions/media.Media"
+                },
+                "name": {
+                    "description": "(optional)",
+                    "type": "string",
+                    "default": "false",
+                    "example": "false"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "phone": {
+                    "description": "(optional)",
+                    "type": "string"
+                },
+                "phonePrivacy": {
+                    "description": "(optional)",
+                    "type": "boolean",
+                    "default": false,
+                    "example": false
+                },
+                "profession": {
+                    "description": "(optional)",
+                    "type": "string"
+                },
+                "professionId": {
+                    "description": "(optional)",
+                    "type": "integer"
+                },
+                "professionPrivacy": {
+                    "description": "(optional)",
+                    "type": "boolean",
+                    "default": false,
+                    "example": false
+                },
+                "relationshipStatus": {
+                    "description": "(optional)",
+                    "type": "string"
+                },
+                "relationshipStatusId": {
+                    "description": "(optional)",
+                    "type": "integer"
+                },
+                "relationshipStatusPrivacy": {
+                    "description": "(optional)",
+                    "type": "boolean",
+                    "default": false,
+                    "example": false
+                },
+                "username": {
+                    "type": "string"
+                },
+                "visibility": {
+                    "description": "(optional)",
+                    "type": "integer"
+                },
+                "website": {
+                    "description": "(optional)",
+                    "type": "string"
+                },
+                "websitePrivacy": {
+                    "description": "(optional)",
+                    "type": "boolean",
+                    "default": false,
+                    "example": false
+                },
+                "weight": {
+                    "description": "(optional)",
+                    "type": "integer"
+                },
+                "weightPrivacy": {
+                    "description": "(optional)",
+                    "type": "boolean",
+                    "default": false,
+                    "example": false
+                }
+            }
+        },
+        "user.SignInRequest": {
+            "type": "object",
+            "properties": {
+                "login": {
+                    "description": "(required)",
+                    "type": "string",
+                    "maxLength": 50,
+                    "minLength": 3
+                },
+                "password": {
+                    "description": "(required)",
+                    "type": "string",
+                    "maxLength": 255,
+                    "minLength": 6
+                }
+            }
+        },
+        "user.SignUpRequest": {
+            "type": "object",
+            "properties": {
+                "deviceToken": {
+                    "description": "(optional)",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "(required)",
+                    "type": "string",
+                    "format": "email",
+                    "maxLength": 255,
+                    "minLength": 3
+                },
+                "password": {
+                    "description": "(required)",
+                    "type": "string",
+                    "maxLength": 255,
+                    "minLength": 6
+                },
+                "username": {
+                    "description": "(required)",
+                    "type": "string",
+                    "maxLength": 50,
+                    "minLength": 3
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "ApiKeyAuth": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}

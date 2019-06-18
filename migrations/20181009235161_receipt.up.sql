@@ -28,6 +28,7 @@ CREATE TABLE `receipt_ingredients` (
     `receipt_id` INT(11) unsigned NOT NULL,
     `ingredient_id` INT(11) unsigned NOT NULL,
     `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
     `deleted_at` DATETIME DEFAULT NULL,
     CONSTRAINT `fk_receipts_receipt_ingredients`  FOREIGN KEY  (`receipt_id`) REFERENCES receipts(`id`),
     CONSTRAINT `fk_ingredients_receipt_ingredients` FOREIGN KEY (`ingredient_id`) REFERENCES ingredients(`id`),
@@ -39,6 +40,7 @@ CREATE TABLE `receipt_directions` (
     `description` TEXT DEFAULT NULL,
     `receipt_id` INT(11) unsigned NOT NULL,
     `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
     `deleted_at` DATETIME DEFAULT NULL,
     CONSTRAINT `fk_receipts_receipt_directions` FOREIGN KEY (`receipt_id`) REFERENCES receipts(`id`),
     PRIMARY KEY (`id`)

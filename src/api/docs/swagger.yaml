@@ -1,0 +1,1102 @@
+basePath: /
+definitions:
+  handler.APIResponse:
+    properties:
+      message:
+        description: need fill only if error occurred
+        type: string
+    type: object
+  handler.AuthAPIResponse:
+    properties:
+      access_token:
+        type: string
+      id:
+        type: integer
+      message:
+        description: need fill only if error occurred
+        type: string
+    type: object
+  handler.IngredientAPIResponse:
+    properties:
+      item:
+        $ref: '#/definitions/ingredient.Ingredient'
+        type: object
+      message:
+        description: need fill only if error occurred
+        type: string
+    type: object
+  handler.ListAPIResponse:
+    properties:
+      list:
+        items:
+          $ref: '#/definitions/receipt.Receipt'
+        type: array
+      message:
+        description: need fill only if error occurred
+        type: string
+    type: object
+  handler.ListIngredientsAPIResponse:
+    properties:
+      list:
+        items:
+          $ref: '#/definitions/ingredient.Ingredient'
+        type: array
+      message:
+        description: need fill only if error occurred
+        type: string
+    type: object
+  handler.ListReceiptDirectionAPIResponse:
+    properties:
+      list:
+        items:
+          $ref: '#/definitions/receipt.ReceiptDirection'
+        type: array
+      message:
+        description: need fill only if error occurred
+        type: string
+    type: object
+  handler.ListReceiptIngredientAPIResponse:
+    properties:
+      list:
+        items:
+          $ref: '#/definitions/receipt.ReceiptIngredient'
+        type: array
+      message:
+        description: need fill only if error occurred
+        type: string
+    type: object
+  handler.ReceiptAPIResponse:
+    properties:
+      item:
+        $ref: '#/definitions/receipt.Receipt'
+        type: object
+      message:
+        description: need fill only if error occurred
+        type: string
+    type: object
+  handler.ReceiptDirectionAPIResponse:
+    properties:
+      item:
+        $ref: '#/definitions/receipt.ReceiptDirection'
+        type: object
+      message:
+        description: need fill only if error occurred
+        type: string
+    type: object
+  handler.ReceiptIngredientAPIResponse:
+    properties:
+      item:
+        $ref: '#/definitions/receipt.ReceiptIngredient'
+        type: object
+      message:
+        description: need fill only if error occurred
+        type: string
+    type: object
+  ingredient.Ingredient:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  media.Media:
+    properties:
+      format:
+        description: format (read only) (required)
+        example: image/png
+        type: string
+      link:
+        description: media link (read only) (required)
+        example: ac146571eb55d9cbde1a886dbc1f85d2/event.png
+        type: string
+    type: object
+  receipt.Receipt:
+    properties:
+      category:
+        type: string
+      cooking_time:
+        type: integer
+      created_at:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      media:
+        $ref: '#/definitions/media.Media'
+        type: object
+      name:
+        type: string
+      updated_at:
+        type: string
+      user_id:
+        type: integer
+    type: object
+  receipt.ReceiptDirection:
+    properties:
+      created_at:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      receipt_id:
+        type: integer
+      updated_at:
+        type: string
+    type: object
+  receipt.ReceiptIngredient:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: integer
+      ingredient:
+        $ref: '#/definitions/ingredient.Ingredient'
+        type: object
+      ingredient_id:
+        type: integer
+      quantity:
+        type: string
+      receipt_id:
+        type: integer
+      updated_at:
+        type: string
+    type: object
+  services.CreateIngredientRequest:
+    properties:
+      name:
+        description: (required)
+        maxLength: 255
+        minLength: 3
+        type: string
+    required:
+    - name
+    type: object
+  services.CreateReceiptDirectionRequest:
+    properties:
+      description:
+        description: (required)
+        maxLength: 255
+        minLength: 3
+        type: string
+    required:
+    - description
+    type: object
+  services.CreateReceiptIngredientRequest:
+    properties:
+      ingredient_id:
+        minimum: 1
+        type: integer
+      quantity:
+        description: (required)
+        maxLength: 255
+        minLength: 3
+        type: string
+    required:
+    - ingredient_id
+    - quantity
+    type: object
+  services.CreateReceiptRequest:
+    properties:
+      category:
+        maxLength: 255
+        minLength: 3
+        type: string
+      cooking_time:
+        minimum: 1
+        type: integer
+      description:
+        maxLength: 255
+        minLength: 3
+        type: string
+      name:
+        description: (required)
+        maxLength: 255
+        minLength: 3
+        type: string
+    required:
+    - category
+    - cooking_time
+    - description
+    - name
+    type: object
+  services.UpdateIngredientRequest:
+    properties:
+      name:
+        description: (required)
+        maxLength: 255
+        minLength: 3
+        type: string
+    required:
+    - name
+    type: object
+  services.UpdateReceiptDirectionRequest:
+    properties:
+      description:
+        description: (required)
+        maxLength: 255
+        minLength: 3
+        type: string
+    required:
+    - description
+    type: object
+  services.UpdateReceiptIngredientRequest:
+    properties:
+      quantity:
+        description: (required)
+        maxLength: 255
+        minLength: 3
+        type: string
+    required:
+    - quantity
+    type: object
+  services.UpdateReceiptRequest:
+    properties:
+      category:
+        maxLength: 255
+        minLength: 3
+        type: string
+      cooking_time:
+        minimum: 1
+        type: integer
+      description:
+        maxLength: 255
+        minLength: 3
+        type: string
+      name:
+        description: (required)
+        maxLength: 255
+        minLength: 3
+        type: string
+    required:
+    - category
+    - cooking_time
+    - description
+    - name
+    type: object
+  user.SignInRequest:
+    properties:
+      password:
+        description: (required)
+        maxLength: 255
+        minLength: 6
+        type: string
+      username:
+        description: (required)
+        maxLength: 50
+        minLength: 3
+        type: string
+    required:
+    - password
+    - username
+    type: object
+  user.SignUpRequest:
+    properties:
+      password:
+        description: (required)
+        maxLength: 255
+        minLength: 6
+        type: string
+      username:
+        description: (required)
+        maxLength: 50
+        minLength: 3
+        type: string
+    required:
+    - password
+    - username
+    type: object
+host: api.food.test
+info:
+  contact: {}
+  description: This is Swagger docs for Food API
+  license: {}
+  title: Food API
+  version: "1.0"
+paths:
+  /user/signIn:
+    post:
+      consumes:
+      - application/json
+      description: get a user by params
+      parameters:
+      - description: User params
+        in: body
+        name: account
+        required: true
+        schema:
+          $ref: '#/definitions/user.SignInRequest'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.AuthAPIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      summary: Get a user from the DB
+      tags:
+      - auth
+  /user/signUp:
+    post:
+      consumes:
+      - application/json
+      description: create new user by params
+      parameters:
+      - description: User params
+        in: body
+        name: account
+        required: true
+        schema:
+          $ref: '#/definitions/user.SignUpRequest'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.AuthAPIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      summary: Add a new user to the DB
+      tags:
+      - auth
+  /v1/ingredients/:
+    get:
+      description: find ingredients by params
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ListIngredientsAPIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Get ingredients
+      tags:
+      - receipts
+    post:
+      parameters:
+      - description: params
+        in: body
+        name: ingredient
+        required: true
+        schema:
+          $ref: '#/definitions/services.CreateIngredientRequest'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.IngredientAPIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Create ingredient
+      tags:
+      - receipts
+  /v1/ingredients/{id}:
+    put:
+      parameters:
+      - description: Ingredient id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: params
+        in: body
+        name: ingredient
+        required: true
+        schema:
+          $ref: '#/definitions/services.UpdateIngredientRequest'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.IngredientAPIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Update ingredient
+      tags:
+      - receipts
+  /v1/media/{folder}/{filename}:
+    get:
+      description: get media
+      parameters:
+      - description: 1ac4f9a135d204e71ed41fa8accfbe42
+        in: path
+        name: folder
+        required: true
+        type: string
+      - description: avatar.png
+        in: path
+        name: filename
+        required: true
+        type: string
+      produces:
+      - image/png
+      - image/jpeg
+      - image/gif
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: integer
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Get media from DB
+      tags:
+      - media
+  /v1/receipts/:
+    get:
+      description: find receipts by params
+      parameters:
+      - description: category
+        in: query
+        name: category
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ListAPIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Get receipts
+      tags:
+      - receipts
+    post:
+      parameters:
+      - description: params
+        in: body
+        name: ingredient
+        required: true
+        schema:
+          $ref: '#/definitions/services.CreateReceiptRequest'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ReceiptAPIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Create receipt
+      tags:
+      - receipts
+  /v1/receipts/{id}:
+    delete:
+      parameters:
+      - description: Receipt id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204": {}
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Delete receipt
+      tags:
+      - receipts
+    put:
+      parameters:
+      - description: Receipt id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: params
+        in: body
+        name: ingredient
+        required: true
+        schema:
+          $ref: '#/definitions/services.UpdateReceiptRequest'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ReceiptAPIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Update receipt
+      tags:
+      - receipts
+  /v1/receipts/{id}/directions:
+    get:
+      description: find receipt directions by params
+      parameters:
+      - description: Receipt id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ListReceiptDirectionAPIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Get receipt directions
+      tags:
+      - receipts
+    post:
+      parameters:
+      - description: Receipt id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: params
+        in: body
+        name: ingredient
+        required: true
+        schema:
+          $ref: '#/definitions/services.CreateReceiptDirectionRequest'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ReceiptDirectionAPIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Create receipt direction
+      tags:
+      - receipts
+  /v1/receipts/{id}/directions/{direction_id}:
+    delete:
+      parameters:
+      - description: Receipt id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Receipt direction id
+        in: path
+        name: direction_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204": {}
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Delete receipt direction
+      tags:
+      - receipts
+    put:
+      parameters:
+      - description: Receipt id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Receipt direction id
+        in: path
+        name: direction_id
+        required: true
+        type: integer
+      - description: params
+        in: body
+        name: direction
+        required: true
+        schema:
+          $ref: '#/definitions/services.UpdateReceiptDirectionRequest'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ReceiptDirectionAPIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Update receipt direction
+      tags:
+      - receipts
+  /v1/receipts/{id}/ingredients:
+    get:
+      description: find receipt ingredients by params
+      parameters:
+      - description: Receipt id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ListReceiptIngredientAPIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Get receipt ingredients
+      tags:
+      - receipts
+    post:
+      parameters:
+      - description: Receipt id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: params
+        in: body
+        name: ingredient
+        required: true
+        schema:
+          $ref: '#/definitions/services.CreateReceiptIngredientRequest'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ReceiptIngredientAPIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Create receipt ingredient
+      tags:
+      - receipts
+  /v1/receipts/{id}/ingredients/{ingredient_id}:
+    delete:
+      parameters:
+      - description: Receipt id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Receipt ingredient id
+        in: path
+        name: ingredient_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204": {}
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Delete receipt ingredient
+      tags:
+      - receipts
+    put:
+      parameters:
+      - description: Receipt id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Receipt ingredient id
+        in: path
+        name: ingredient_id
+        required: true
+        type: integer
+      - description: params
+        in: body
+        name: ingredient
+        required: true
+        schema:
+          $ref: '#/definitions/services.UpdateReceiptIngredientRequest'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ReceiptIngredientAPIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Update receipt
+      tags:
+      - receipts
+  /v1/receipts/{id}/media:
+    post:
+      consumes:
+      - multipart/form-data
+      description: upload a receipt media
+      parameters:
+      - description: Receipt id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Media file
+        in: formData
+        name: media_file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.APIResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Update a receipt media
+      tags:
+      - receipts
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
