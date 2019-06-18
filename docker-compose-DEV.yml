@@ -1,0 +1,30 @@
+version: '3.4'
+
+services:
+   app:
+     build:
+       context: .
+       dockerfile: Dockerfile
+       target: dev
+     restart: always
+     image: food-api_dev
+     container_name: food-api
+     volumes:
+       - "./src/:/app/src"
+       - "./bin/:/app/bin"
+       - "./migrations:/app/migrations"
+       - "./Makefile:/app/Makefile"
+       - "./data/media:/data/media"
+     env_file:
+       - .env
+     ports:
+       - "3000:80"
+       - "40000:40000"
+     security_opt:
+       - "seccomp:unconfined"
+     cap_add:
+       - SYS_PTRACE
+     links:
+     - "db"
+     depends_on:
+     - db

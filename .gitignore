@@ -1,0 +1,14 @@
+.DS_Store
+
+.idea
+.vscode
+/pkg/*
+/bin/*
+/src/*
+!/src/digo
+!/src/run.sh
+!/src/migrate
+!/src/debug.sh
+/src/rebuild.xml
+/data/*
+api
