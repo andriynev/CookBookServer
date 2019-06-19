@@ -4,6 +4,8 @@
 .vscode
 /pkg/*
 /bin/*
+!/bin/migrate
+!/bin/swag
 !/src/run.sh
 !/src/migrate
 !/src/debug.sh
